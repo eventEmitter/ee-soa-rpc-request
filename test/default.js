@@ -43,6 +43,13 @@
 			});
 		});
 
+		it('should parse a select statement', function(){
+			req = new EasyRequest({
+				range: '0-10'
+			});
+			assert.equal(JSON.stringify(req._request.range), '{"to":"10","from":"0"}');
+		});
+
 		it('emit the request event with the corect configured requests', function(done){
 			target.on('request', function(req, res){
 				assert.equal(JSON.stringify(req), '{"formats":{},"filters":{"name":[{"operator":"=","value":"3"}],"eventdata":{"tag":{"name":[{"operator":"=>","value":"hui"}]}}},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"fields":"*","collection":"event","subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"length":2},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"eventdata","version":"0.0.1","action":1,"fields":"*","subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"tag","version":"0.0.1","action":1,"fields":"*"}]}]}');
