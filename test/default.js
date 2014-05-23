@@ -65,7 +65,7 @@
 			req = new EasyRequest({
 				range: '0-10'
 			});
-			assert.equal(JSON.stringify(req._request.range), '{"to":"10","from":"0"}');
+			assert.equal(JSON.stringify(req._request.range), '{"to":10,"from":0}');
 		});
 
 
