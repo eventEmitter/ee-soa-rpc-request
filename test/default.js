@@ -45,23 +45,23 @@
 			});
 			req._collectSubRequests(req.requests);
 
-			assert.equal(JSON.stringify(req._request), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"length":2},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]}]}]}');
+			assert.equal(JSON.stringify(req._request), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"languages":["en"],"version":"0.0.1","action":1,"fields":["*","eventdata"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"length":2},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"fields":["*","tag"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]}]}]}');
 		});
 
 
 
 		it('should parse a complex select statement', function(){
 			req = new EasyRequest({
-				select: ', eventdata.*, eventdata.venue.*, eventdata.tag.*'
+				select: '*, eventdata.*, eventdata.venue.*, eventdata.tag.*'
 			});
 			req._collectSubRequests(req.requests);
 
-			assert.equal(JSON.stringify(req._request), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"languages":["en"],"version":"0.0.1","action":1,"fields":[""],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"2":{"type":"application","subtype":"json"},"length":3},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"venue","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]},{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]}]}]}');
+			assert.equal(JSON.stringify(req._request), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"languages":["en"],"version":"0.0.1","action":1,"fields":["*","eventdata"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"2":{"type":"application","subtype":"json"},"length":3},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"fields":["*","venue","tag"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"venue","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]},{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]}]}]}');
 		});
 
 
 
-		it('should parse a select statement', function(){
+		it('should parse a range statement', function(){
 			req = new EasyRequest({
 				range: '0-10'
 			});
@@ -69,9 +69,10 @@
 		});
 
 
+
 		it('emit the request event with the corect configured requests', function(done){
 			target.on('request', function(req, res){
-				assert.equal(JSON.stringify(req), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{"name":[{"operator":"=","value":"3"}],"eventdata":{"tag":{"name":[{"operator":"=>","value":"hui"}]}}},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"collection":"event","subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"length":2},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]}]}]}');
+				assert.equal(JSON.stringify(req), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{"name":[{"operator":"=","value":"3"}],"eventdata":{"tag":{"name":[{"operator":"=>","value":"hui"}]}}},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"languages":["en"],"version":"0.0.1","action":1,"fields":["*","eventdata"],"collection":"event","subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"length":2},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"fields":["*","tag"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]}]}]}');
 				res.send(1, {});
 			});
 
