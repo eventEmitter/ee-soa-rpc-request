@@ -70,6 +70,15 @@
 
 
 
+		it('should parse an order statement', function(){
+			req = new EasyRequest({
+				order: 'someshit ASC'
+			});
+			assert.equal(req._request.order, 'someshit ASC');
+		});
+
+
+
 		it('emit the request event with the corect configured requests', function(done){
 			target.on('request', function(req, res){
 				assert.equal(JSON.stringify(req), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{"name":[{"operator":"=","value":"3"}],"eventdata":{"tag":{"name":[{"operator":"=>","value":"hui"}]}}},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"languages":["en"],"version":"0.0.1","action":1,"fields":["*","eventdata"],"collection":"event","subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"length":2},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"fields":["*","tag"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]}]}]}');
