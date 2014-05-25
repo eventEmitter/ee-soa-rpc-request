@@ -74,7 +74,7 @@
 			req = new EasyRequest({
 				order: 'someshit ASC'
 			});
-			assert.equal(req._request.order, 'someshit ASC');
+			assert.equal(JSON.stringify(req._request.order), '[{"name":"someshit","direction":"DESC"}]');
 		});
 
 
