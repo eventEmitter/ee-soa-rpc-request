@@ -1,16 +1,16 @@
 
-	
-	var   Class 		= require('ee-class')
-		, log 			= require('ee-log')
-		, EventEmitter 	= require('ee-event-emitter')
-		, assert 		= require('assert');
+
+	var   Class        = require('ee-class')
+		, log          = require('ee-log')
+		, EventEmitter = require('ee-event-emitter')
+		, assert       = require('assert');
 
 
 	var Target = new Class({inherits: EventEmitter})
 		target = new Target();
 
 
-	var   Request  		= require('../')	
+	var   Request  		= require('../')
 		, EasyRequest  	= Request(target)
 		, req;
 
@@ -27,7 +27,7 @@
 			});
 
 			assert.equal(JSON.stringify(req.filters), '{\"name\":[{\"operator\":\"=\",\"value\":\"3\"}]}');
-		});	
+		});
 
 		it('should parse an advanced filter statement', function(){
 			req = new EasyRequest({
@@ -45,7 +45,7 @@
 			});
 			req._collectSubRequests(req.requests);
 
-			assert.equal(JSON.stringify(req._request), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"languages":["en"],"version":"0.0.1","action":1,"fields":["*","eventdata"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"length":2},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"fields":["*","tag"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]}]}]}');
+			assert.equal(JSON.stringify(req._request), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"options":{},"parameters":{},"fields":["*","eventdata"],"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"range":{"from":0,"to":null},"languages":["en"],"version":"0.0.1","action":1,"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"length":2},"filters":{},"relatedTo":{"model":null,"id":null},"options":{},"parameters":{},"fields":["*","tag"],"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"range":{"from":0,"to":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"options":{},"parameters":{},"fields":["*"],"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"range":{"from":0,"to":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"subRequests":[]}]}]}');
 		});
 
 
@@ -56,7 +56,7 @@
 			});
 			req._collectSubRequests(req.requests);
 
-			assert.equal(JSON.stringify(req._request), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"languages":["en"],"version":"0.0.1","action":1,"fields":["*","eventdata"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"2":{"type":"application","subtype":"json"},"length":3},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"fields":["*","venue","tag"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"venue","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]},{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]}]}]}');
+			assert.equal(JSON.stringify(req._request), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"options":{},"parameters":{},"fields":["*","eventdata"],"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"range":{"from":0,"to":null},"languages":["en"],"version":"0.0.1","action":1,"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"2":{"type":"application","subtype":"json"},"length":3},"filters":{},"relatedTo":{"model":null,"id":null},"options":{},"parameters":{},"fields":["*","venue","tag"],"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"range":{"from":0,"to":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"options":{},"parameters":{},"fields":["*"],"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"range":{"from":0,"to":null},"collection":"venue","languages":["en"],"version":"0.0.1","action":1,"subRequests":[]},{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"options":{},"parameters":{},"fields":["*"],"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"range":{"from":0,"to":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"subRequests":[]}]}]}');
 		});
 
 
@@ -65,23 +65,28 @@
 			req = new EasyRequest({
 				range: '0-10'
 			});
-			assert.equal(JSON.stringify(req._request.range), '{"to":10,"from":0}');
+			assert.equal(JSON.stringify(req._request.range), '{"from":0,"to":10}');
 		});
 
-
+		it('should parse a simple order statement', function(){
+			req = new EasyRequest({
+				order: 'startdate DESC'
+			});
+			assert.equal(JSON.stringify(req._request.order), '{"startdate":"DESC"}');
+		});
 
 		it('should parse an order statement', function(){
 			req = new EasyRequest({
-				order: 'someshit ASC'
+				order: 'startdate DESC, eventData.id, eventData.venue.id'
 			});
-			assert.equal(JSON.stringify(req._request.order), '[{"name":"someshit","direction":"DESC"}]');
+			assert.equal(JSON.stringify(req._request.order), '{"startdate":"DESC","eventData":{"id":"ASC","venue":{"id":"ASC"}}}');
 		});
 
 
 
 		it('emit the request event with the corect configured requests', function(done){
 			target.on('request', function(req, res){
-				assert.equal(JSON.stringify(req), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{"name":[{"operator":"=","value":"3"}],"eventdata":{"tag":{"name":[{"operator":"=>","value":"hui"}]}}},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"languages":["en"],"version":"0.0.1","action":1,"fields":["*","eventdata"],"collection":"event","subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"length":2},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"fields":["*","tag"],"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"fields":["*"],"subRequests":[]}]}]}');
+				assert.equal(JSON.stringify(req), '{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{"name":[{"operator":"=","value":"3"}],"eventdata":{"tag":{"name":[{"operator":"=>","value":"hui"}]}}},"relatedTo":{"model":null,"id":null},"options":{},"parameters":{},"fields":["*","eventdata"],"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"range":{"from":0,"to":null},"languages":["en"],"version":"0.0.1","action":1,"collection":"event","subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"1":{"type":"application","subtype":"json"},"length":2},"filters":{},"relatedTo":{"model":null,"id":null},"options":{},"parameters":{},"fields":["*","tag"],"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"range":{"from":0,"to":null},"collection":"eventdata","languages":["en"],"version":"0.0.1","action":1,"subRequests":[{"formats":{"0":{"type":"application","subtype":"json"},"length":1},"filters":{},"relatedTo":{"model":null,"id":null},"options":{},"parameters":{},"fields":["*"],"accessToken":{"type":null,"value":null},"requestToken":{"type":null,"value":null},"range":{"from":0,"to":null},"collection":"tag","languages":["en"],"version":"0.0.1","action":1,"subRequests":[]}]}]}');
 				res.send(1, {});
 			});
 
@@ -94,4 +99,3 @@
 			});
 		});
 	});
-	

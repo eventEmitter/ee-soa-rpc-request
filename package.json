@@ -1,9 +1,9 @@
 {
       "name"                        : "ee-soa-rpc-request"
     , "description"                 : "Easy SOA requests"
-    , "version"                     : "0.1.10"
+    , "version"                     : "0.1.11"
     , "homepage"                    : "https://github.com/eventEmitter/ee-soa-rpc-request"
-    , "author"                      : "Michael van der Weg <michael@eventemitter.com> (http://eventemitter.com/)" 
+    , "author"                      : "Michael van der Weg <michael@eventemitter.com> (http://eventemitter.com/)"
     , "licence"                     : "mit"
     , "repository": {
           "url"                     : "https://github.com/eventEmitter/ee-soa-rpc-request.git"
