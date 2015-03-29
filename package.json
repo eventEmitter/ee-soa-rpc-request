@@ -23,6 +23,9 @@
         , "ee-soa-request"          : "0.2.x"
         , "ee-soa-response"         : "0.1.x"
         , "ee-argv"                 : "0.1.x"
+        , "ee-soa-transport-rest"   : "0.4.x"
+        , "ee-webserver"            : "0.3.x"
+        , "ee-rest-headers"         : "0.3.*"
     }
     , "devDependencies": {
           "mocha"                   : "1.17.x"
