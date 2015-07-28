@@ -114,4 +114,17 @@
 				done();
 			});
 		});
+
+		it('should set the accesstoken correctly', function(done){
+			target.off().on('request', function(req, res){
+				assert.equal(JSON.stringify(req.accessTokens), '["abcdefg"]');
+				assert.equal(JSON.stringify(req.subRequests[0].accessTokens), '["abcdefg"]');
+				done();
+			});
+
+			req = new EasyRequest({
+				  token: 'abcdefg'
+				, select: 'x, x.y'
+			}).send();
+		});
 	});
