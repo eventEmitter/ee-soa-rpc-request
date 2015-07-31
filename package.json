@@ -1,7 +1,7 @@
 {
       "name"                        : "ee-soa-rpc-request"
     , "description"                 : "Easy SOA requests"
-    , "version"                     : "0.2.17"
+    , "version"                     : "0.2.18"
     , "homepage"                    : "https://github.com/eventEmitter/ee-soa-rpc-request"
     , "author"                      : "Michael van der Weg <michael@eventemitter.com> (http://eventemitter.com/)"
     , "licence"                     : "mit"
@@ -18,9 +18,7 @@
     , "dependencies": {
           "ee-class"                : "1.0.x"
         , "ee-event-emitter"        : "0.1.x"
-        , "ee-types"                : "0.1.x"
         , "ee-log"                  : "0.2.x"
-        , "ee-soa-request"          : "0.2.x"
         , "ee-soa-response"         : "0.1.x"
         , "ee-argv"                 : "0.1.x"
         , "ee-soa-transport-rest"   : "0.4.x"
@@ -29,7 +27,6 @@
     }
     , "devDependencies": {
           "mocha"                   : "1.17.x"
-        , "ee-travis"               : "0.1.x"
     }
     , "optionalDependencies": {}
     , "keywords"                    : ["ee", "soa", "request"]
