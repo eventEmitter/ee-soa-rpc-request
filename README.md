@@ -1,5 +1,7 @@
 # ee-soa-rpc-request
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/eventEmitter/ee-soa-rpc-request.svg)](https://greenkeeper.io/)
+
 Easy SOA requests
 
 ## installation
