@@ -17,16 +17,16 @@
     }
     , "dependencies": {
           "ee-class"                : "1.x"
-        , "ee-event-emitter"        : "0.3.x"
-        , "ee-log"                  : "0.3.x"
+        , "ee-event-emitter"        : "~1.0.1"
+        , "ee-log"                  : "~2.0.2"
         , "ee-soa-response"         : "0.1.x"
-        , "ee-argv"                 : "0.1.x"
+        , "ee-argv"                 : "~1.0.2"
         , "ee-soa-transport-rest"   : "0.4.x"
-        , "ee-webserver"            : "0.3.x"
+        , "ee-webserver"            : "~1.0.1"
         , "ee-rest-headers"         : "0.3.*"
     }
     , "devDependencies": {
-          "mocha"                   : "2.x"
+          "mocha"                   : "^3.3.0"
     }
     , "optionalDependencies": {}
     , "keywords"                    : ["ee", "soa", "request"]
