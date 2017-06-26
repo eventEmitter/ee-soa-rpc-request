@@ -1,36 +1,40 @@
 {
-      "name"                        : "ee-soa-rpc-request"
-    , "description"                 : "Easy SOA requests"
-    , "version"                     : "0.2.25"
-    , "homepage"                    : "https://github.com/eventEmitter/ee-soa-rpc-request"
-    , "author"                      : "Michael van der Weg <michael@eventemitter.com> (http://eventemitter.com/)"
-    , "licence"                     : "mit"
-    , "repository": {
-          "url"                     : "https://github.com/eventEmitter/ee-soa-rpc-request.git"
-        , "type"                    : "git"
-    }
-    , "engines": {
-        "node"                      : ">=v4.2.1"
-    }
-    , "bugs": {
-        "url"                       : "https://github.com/eventEmitter/ee-soa-rpc-request/issues"
-    }
-    , "dependencies": {
-          "ee-class"                : "1.x"
-        , "ee-event-emitter"        : "0.3.x"
-        , "ee-log"                  : "0.3.x"
-        , "ee-soa-response"         : "0.1.x"
-        , "ee-argv"                 : "0.1.x"
-        , "ee-soa-transport-rest"   : "0.4.x"
-        , "ee-webserver"            : "0.3.x"
-        , "ee-rest-headers"         : "0.3.*"
-    }
-    , "devDependencies": {
-          "mocha"                   : "2.x"
-    }
-    , "optionalDependencies": {}
-    , "keywords"                    : ["ee", "soa", "request"]
-    , "scripts": {
-        "test"                      : "./node_modules/mocha/bin/mocha --reporter spec"
+    "name": "ee-soa-rpc-request",
+    "description": "Easy SOA requests",
+    "version": "0.2.25",
+    "homepage": "https://github.com/eventEmitter/ee-soa-rpc-request",
+    "author": "Michael van der Weg <michael@eventemitter.com> (http://eventemitter.com/)",
+    "licence": "mit",
+    "repository": {
+        "url": "https://github.com/eventEmitter/ee-soa-rpc-request.git",
+        "type": "git"
+    },
+    "engines": {
+        "node": ">=v4.2.1"
+    },
+    "bugs": {
+        "url": "https://github.com/eventEmitter/ee-soa-rpc-request/issues"
+    },
+    "dependencies": {
+        "ee-argv": "0.1.x",
+        "ee-class": "^1.4.0",
+        "ee-event-emitter": "0.3.x",
+        "ee-log": "0.3.x",
+        "ee-rest-headers": "^0.3.5",
+        "ee-soa-response": "^0.1.6",
+        "ee-soa-transport-rest": "^0.4.28",
+        "ee-webserver": "0.3.x"
+    },
+    "devDependencies": {
+        "mocha": "2.x"
+    },
+    "optionalDependencies": {},
+    "keywords": [
+        "ee",
+        "soa",
+        "request"
+    ],
+    "scripts": {
+        "test": "./node_modules/mocha/bin/mocha --reporter spec"
     }
 }
